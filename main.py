@@ -1,3 +1,4 @@
+import sys
 from menus import main_menu
 
 while True:
@@ -5,13 +6,12 @@ while True:
     choice = input()
 
     match choice:
-        case str(1):
+        case "1":
             print("you chose 1")
-        case str(2):
+        case "2":
             print("you chose 2")
-        case str(3):
-            exit
+        case "3":
+            print("\nGood bye !")
+            sys.exit()
         case _:
             print("Please enter a valid choice")
-
-print("\nGood bye !")

@@ -1,6 +1,3 @@
-import csv
-
-
 def define_name():
     name = input()
     return name
