@@ -1,6 +1,11 @@
 import csv
 
 
+def define_name():
+    name = input()
+    return name
+
+
 def define_headers():
     headers = {}
 
@@ -22,11 +27,12 @@ def define_headers():
     validation = input()
 
     if validation == "y":
-        return Table(headers)
+        return headers
     else:
         pass
 
 
 class Table:
-    def __init__(self, headers):
-        pass
+    def __init__(self, table_name, headers):
+        self.table_name = table_name
+        self.headers = headers
