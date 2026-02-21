@@ -10,6 +10,11 @@ def new_table_menu():
     print("\nPlease enter the name of the table")
 
 
+def table_open_menu():
+    print("\nPlease select from the below options")
+    print("1 - blabla")
+
+
 def task_menu(table_name):
     print(
         f"Your table '{table_name}' is loaded. Please select from the options below\n"
