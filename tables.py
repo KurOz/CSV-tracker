@@ -43,6 +43,16 @@ def define_headers():
         pass
 
 
+def table_selector():
+    # create a function that allows to navigate the computer and select a CSV file
+    pass
+
+
+def open_table(table_name):
+    # create a function loading the table as an object to prepare for modification and displaying the appropriate menu
+    pass
+
+
 class Table:
     def __init__(self, table_name, headers):
         self.table_name = table_name

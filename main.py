@@ -1,6 +1,6 @@
 import sys
-from menus import main_menu, task_menu
-from tables import define_name, define_headers, Table
+from menus import main_menu
+from tables import define_name, define_headers, Table, table_selector, open_table
 
 while True:
     main_menu()
@@ -11,10 +11,10 @@ while True:
             name = define_name()
             headers = define_headers()
             Table(name, headers)
-            task_menu(name)
-            input()
+            open_table(name)
         case "2":
-            print("you chose 2")
+            table = table_selector()
+            open_table(table)
         case "3":
             print("\nGood bye !")
             sys.exit()
