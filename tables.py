@@ -14,10 +14,13 @@ def define_headers():
     i = 0
     choice = 0
 
-    while choice != "q":
-        headers[i] = choice
+    while True:
         choice = input()
-        i += 1
+        if choice == "q":
+            break
+        else:
+            headers[i] = choice
+            i += 1
 
     print("the column headers you defined are :")
     i = 0
