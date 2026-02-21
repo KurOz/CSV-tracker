@@ -1,4 +1,5 @@
 def define_name():
+    print("Please enter the name of the table you want to create")
     name = input()
     return name
 
@@ -7,18 +8,21 @@ def define_headers():
     headers = {}
 
     print("What fields should your tasks present ?")
+    print("Press 'Enter' to confirm each entry")
+    print("Enter 'q' when you are done.")
 
     i = 0
     choice = 0
 
     while choice != "q":
-        choice = input()
         headers[i] = choice
+        choice = input()
+        i += 1
 
     print("the column headers you defined are :")
     i = 0
     for i in range(0, len(headers)):
-        print(headers[i])
+        print(f"Header {i + 1} is {headers[i]}")
     print("is it ok (y/n) ?")
 
     validation = input()

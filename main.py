@@ -1,5 +1,6 @@
 import sys
 from menus import main_menu
+from tables import define_name, define_headers, Table
 
 while True:
     main_menu()
@@ -7,7 +8,9 @@ while True:
 
     match choice:
         case "1":
-            print("you chose 1")
+            name = define_name()
+            headers = define_headers()
+            Table(name, headers)
         case "2":
             print("you chose 2")
         case "3":
