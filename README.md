@@ -2,7 +2,10 @@
 
 ## Introduction
 
-The intention of this program is to be an exercise in pushing the usage of CSV files for tracking items and their relations.
+The intention of this program is to be an exercise in pushing the usage of
+CSV files for tracking items and their relations. Typically this would be
+handled by a relational database. This project is more intended as a "what if"
+project than anything else.
 
 ## Main functions
 

@@ -1,10 +1,10 @@
 import csv
 
-from menus import table_open_menu
+from menus import new_table_menu, table_open_menu
 
 
 def define_name():
-    print("Please enter the name of the table you want to create")
+    new_table_menu()
     name = input() + ".csv"
     print(f"the name of the file will be : {name}\n")
     return name
@@ -13,16 +13,25 @@ def define_name():
 def define_headers():
     headers = {}
 
-    print("What fields should your tasks present ?")
+    print("\nWhat fields should your tasks present ?")
     print("Press 'Enter' to confirm each entry")
-    print("Enter 'q' when you are done.")
+    print(
+        "\nNote that some functional fields will be added by the program. These fields are :"
+    )
+    print("'Task_ID' - holds a unique ID for each line in the table")
+    print("'Nesting' - records the sub-level each task is located at")
+    print("'Parent_ID' - hold the unique ID of the parent task")
+    print(
+        "'Progress' - holds the percentage of progress for each task. This is set manually for or calculated automatically if sub-tasks are linked"
+    )
+    print("\nEnter 'Done' to end this phase.")
 
     i = 0
     choice = 0
 
     while True:
         choice = input()
-        if choice == "q":
+        if choice.lower == "done":
             break
         else:
             headers[i] = choice
@@ -36,14 +45,18 @@ def define_headers():
 
     validation = input()
 
-    if validation == "y":
-        headers[i + 1] = "task_ID"
-        headers[i + 2] = "nesting"
-        headers[i + 3] = "parent_ID"
-        headers[i + 4] = "progress"
-        return list(headers.values())
-    else:
-        pass
+    match validation:
+        case "y":
+            headers[i + 1] = "Task_ID"
+            headers[i + 2] = "Nesting"
+            headers[i + 3] = "Parent_ID"
+            headers[i + 4] = "Progress"
+            return list(headers.values())
+        case "n":
+            headers = {}
+            define_headers()
+        case _:
+            print("Please enter y, Y, n or N")
 
 
 def table_selector():
