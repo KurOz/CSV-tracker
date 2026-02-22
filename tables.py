@@ -1,5 +1,7 @@
 import csv
 
+from menus import table_open_menu
+
 
 def define_name():
     print("Please enter the name of the table you want to create")
@@ -38,6 +40,7 @@ def define_headers():
         headers[i + 1] = "task_ID"
         headers[i + 2] = "nesting"
         headers[i + 3] = "parent_ID"
+        headers[i + 4] = "progress"
         return list(headers.values())
     else:
         pass
@@ -50,7 +53,16 @@ def table_selector():
 
 def open_table(table_name):
     # create a function loading the table as an object to prepare for modification and displaying the appropriate menu
-    pass
+    table_open_menu()
+    choice = input()
+
+    match choice:
+        case "1":
+            print("update table")
+        case "2":
+            print("delete table")
+        case "3":
+            pass
 
 
 class Table:

@@ -12,7 +12,9 @@ def new_table_menu():
 
 def table_open_menu():
     print("\nPlease select from the below options")
-    print("1 - blabla")
+    print("1 - Update the table's tasks")
+    print("2 - Delete the table")
+    print("3 - Go back to main menu")
 
 
 def task_menu(table_name):
