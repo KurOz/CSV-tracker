@@ -1,5 +1,4 @@
 from textual.app import App, ComposeResult
-from textual.containers import Grid
 from textual.widgets import Header, Footer, Static
 
 
@@ -13,7 +12,13 @@ class Tracker(App):
         """Create child widgets for the app."""
         yield Header()
         yield Footer()
-        yield Static("Table_headers", id="table_headers")
+        self.main_box = Static("TEST", id="main_box")
+        yield self.main_box
+
+    def on_mount(self):
+        pass
+        # self.main_box.styles.box_sizing = "content-box"
+        # self.main_box.styles.padding = 0
 
     def action_toggle_dark(self) -> None:
         """An action to toggle dark mode."""
@@ -25,4 +30,3 @@ class Tracker(App):
 if __name__ == "__main__":
     app = Tracker()
     app.run()
-
