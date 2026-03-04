@@ -1,22 +1,29 @@
-import sys
-from menus import main_menu
-from tables import define_name, define_headers, Table, table_selector, open_table
+from textual.app import App, ComposeResult
+from textual.widgets import Header, Footer, OptionList, Static
+from bindings import BINDINGS_LIST
+from mmenu import MAIN_MENU
 
-while True:
-    main_menu()
-    choice = input()
 
-    match choice:
-        case "1":
-            name = define_name()
-            headers = define_headers()
-            Table(name, headers)
-            open_table(name)
-        case "2":
-            table = table_selector()
-            open_table(table)
-        case "3":
-            print("\nGood bye !")
-            sys.exit()
-        case _:
-            print("\nPlease enter a valid choice")
+class Tracker(App):
+    """A task tracking app"""
+
+    CSS_PATH = "tracker.css"
+    BINDINGS = BINDINGS_LIST
+
+    def compose(self) -> ComposeResult:
+        """Initiate the main frame in which the interface will appear.
+        Display the mainm menu"""
+        yield Header(name="Tracker", icon="T")
+        yield Footer()
+        yield MAIN_MENU
+
+    def action_toggle_dark(self) -> None:
+        """An action to toggle dark mode."""
+        self.theme = (
+            "textual-dark" if self.theme == "textual-light" else "textual-light"
+        )
+
+
+if __name__ == "__main__":
+    app = Tracker()
+    app.run()
